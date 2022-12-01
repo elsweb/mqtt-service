@@ -1,0 +1,9 @@
+version: "3"
+services:
+  mosquitto:
+    image: eclipse-mosquitto
+    network_mode: host
+    volumes:
+      - ./mosquitto/conf:/mosquitto/conf
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
