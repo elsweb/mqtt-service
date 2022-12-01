@@ -2,7 +2,8 @@ version: "3"
 services:
   mosquitto:
     image: eclipse-mosquitto
-    network_mode: host
+    tty: true
+    restart: unless-stopped
     ports:
       - "1883:1883"
     volumes:
