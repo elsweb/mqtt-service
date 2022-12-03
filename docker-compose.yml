@@ -2,11 +2,11 @@ version: "3"
 services:
   mosquitto:
     image: eclipse-mosquitto
-    tty: true
-    restart: unless-stopped
+    volumes:
+      - ./mosquitto/config/:/mosquitto/config/:ro #remove :ro for create new user and add again for run
+      - ./mosquitto/log/:/mosquitto/log/
+      - ./mosquitto/data/:/mosquitto/data/
     ports:
       - "1883:1883"
-    volumes:
-      - ./mosquitto/conf:/mosquitto/conf
-      - ./mosquitto/data:/mosquitto/data
-      - ./mosquitto/log:/mosquitto/log
+      - "9001:9001"
+    restart: unless-stopped
